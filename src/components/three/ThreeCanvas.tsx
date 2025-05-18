@@ -1,5 +1,6 @@
 
 import { ReactNode, Suspense } from 'react';
+import * as THREE from 'three';
 import { Canvas } from '@react-three/fiber';
 import { OrbitControls } from '@react-three/drei';
 import ThreeScene from './ThreeScene';
