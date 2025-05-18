@@ -1,5 +1,6 @@
 
 import { useRef } from 'react';
+import * as THREE from 'three';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { Text3D, OrbitControls, Float, Sphere } from '@react-three/drei';
 import { Button } from '@/components/ui/button';
@@ -42,7 +43,7 @@ function ParticleField() {
       (Math.random() - 0.5) * 20, 
       (Math.random() - 0.5) * 10, 
       (Math.random() - 0.5) * 10
-    ],
+    ] as [number, number, number],
     color: [
       "#9b87f5", // Lavender
       "#43c6ac", // Teal
@@ -53,7 +54,7 @@ function ParticleField() {
   return (
     <>
       {particles.map((particle, i) => (
-        <Sphere key={i} args={[0.1, 8, 8]} position={particle.position as [number, number, number]}>
+        <Sphere key={i} args={[0.1, 8, 8]} position={particle.position}>
           <meshStandardMaterial 
             color={particle.color} 
             emissive={particle.color} 
