@@ -11,7 +11,11 @@ interface PageLayoutProps {
 export default function PageLayout({ children, withThreeBackground = false }: PageLayoutProps) {
   return (
     <div className="min-h-screen relative">
-      {withThreeBackground && <ThreeCanvas />}
+      {withThreeBackground && (
+        <div className="fixed inset-0 -z-10 pointer-events-none">
+          <ThreeCanvas />
+        </div>
+      )}
       <Navigation />
       <main className="container mx-auto pt-20 pb-12 px-4">
         {children}

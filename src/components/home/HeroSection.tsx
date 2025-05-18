@@ -72,7 +72,10 @@ export default function HeroSection() {
     <div className="relative min-h-[80vh] flex flex-col items-center justify-center">
       {/* 3D Canvas */}
       <div className="absolute inset-0 z-0">
-        <Canvas camera={{ position: [0, 0, 10], fov: 45 }}>
+        <Canvas 
+          camera={{ position: [0, 0, 10], fov: 45 }}
+          gl={{ antialias: true }}
+        >
           <ambientLight intensity={0.5} />
           <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} intensity={1} castShadow />
           <FloatingText />

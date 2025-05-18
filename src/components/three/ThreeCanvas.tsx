@@ -18,6 +18,7 @@ export default function ThreeCanvas({ className = '', interactive = false, child
         shadows 
         dpr={[1, 2]}
         camera={{ position: [0, 0, 15], fov: 45 }}
+        gl={{ antialias: true }}
       >
         <Suspense fallback={null}>
           <ThreeScene />
