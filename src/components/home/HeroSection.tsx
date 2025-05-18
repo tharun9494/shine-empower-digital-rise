@@ -74,7 +74,11 @@ export default function HeroSection() {
       <div className="absolute inset-0 z-0">
         <Canvas 
           camera={{ position: [0, 0, 10], fov: 45 }}
-          gl={{ antialias: true }}
+          gl={{ 
+            antialias: true,
+            outputEncoding: THREE.sRGBEncoding,
+            toneMapping: THREE.ACESFilmicToneMapping
+          }}
         >
           <ambientLight intensity={0.5} />
           <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} intensity={1} castShadow />
