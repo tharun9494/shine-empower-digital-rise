@@ -1,48 +1,54 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 @layer base {
   :root {
-    --background: 260 60% 99%;
-    --foreground: 260 10% 10%;
+    /* Aryan Solar design tokens */
+    --background: 150 20% 97%;
+    --foreground: 180 45% 12%;
 
     --card: 0 0% 100%;
-    --card-foreground: 260 10% 10%;
+    --card-foreground: 180 45% 12%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 260 10% 10%;
+    --popover-foreground: 180 45% 12%;
 
-    --primary: 260 70% 75%;
-    --primary-foreground: 260 10% 98%;
+    /* Solar Green */
+    --primary: 148 75% 37%;
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 174 50% 52%;
-    --secondary-foreground: 260 10% 98%;
+    /* Deep Solar Navy */
+    --navy: 209 65% 12%;
+    --navy-foreground: 0 0% 100%;
 
-    --muted: 260 10% 96%;
-    --muted-foreground: 260 5% 40%;
+    /* Energy Lime */
+    --secondary: 78 71% 63%;
+    --secondary-foreground: 209 65% 12%;
 
-    --accent: 10 42% 77%;
-    --accent-foreground: 260 10% 10%;
+    /* Warm Solar Gold */
+    --accent: 40 90% 61%;
+    --accent-foreground: 209 65% 12%;
 
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
+    --muted: 150 16% 94%;
+    --muted-foreground: 185 12% 40%;
 
-    --border: 260 30% 90%;
-    --input: 260 30% 90%;
-    --ring: 260 70% 75%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
 
-    --radius: 0.5rem;
+    --border: 155 14% 88%;
+    --input: 155 14% 88%;
+    --ring: 148 75% 37%;
 
-    --sidebar-background: 260 60% 99%;
-    --sidebar-foreground: 260 10% 10%;
-    --sidebar-primary: 260 70% 75%;
-    --sidebar-primary-foreground: 260 10% 98%;
-    --sidebar-accent: 260 10% 96%;
-    --sidebar-accent-foreground: 260 10% 10%;
-    --sidebar-border: 260 30% 90%;
-    --sidebar-ring: 260 70% 75%;
+    --radius: 0.875rem;
+
+    --gradient-navy: linear-gradient(140deg, hsl(209 65% 12%), hsl(200 55% 18%));
+    --gradient-solar: linear-gradient(100deg, hsl(148 75% 37%), hsl(78 71% 63%));
+    --gradient-gold: linear-gradient(100deg, hsl(40 90% 61%), hsl(48 95% 70%));
+
+    --shadow-soft: 0 1px 2px hsl(209 65% 12% / 0.04), 0 8px 24px -12px hsl(209 65% 12% / 0.12);
+    --shadow-lift: 0 24px 60px -24px hsl(209 65% 12% / 0.28);
+    --shadow-glow: 0 0 60px -10px hsl(40 90% 61% / 0.45);
   }
 }
 
@@ -51,22 +57,57 @@
     @apply border-border;
   }
 
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-sans antialiased;
+    overflow-x: hidden;
   }
 
-  /* Custom styles for 3D elements */
-  .canvas-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: -1;
+  h1, h2, h3, h4 {
+    @apply font-display tracking-tight;
+  }
+}
+
+@layer components {
+  .container-x {
+    @apply mx-auto w-full max-w-[1240px] px-5 sm:px-6 lg:px-10;
   }
 
-  .canvas-interactive {
-    pointer-events: auto;
+  .eyebrow {
+    @apply text-[0.7rem] sm:text-xs font-semibold uppercase tracking-[0.22em] text-primary;
+  }
+
+  .surface-card {
+    @apply rounded-2xl border border-border bg-card shadow-[var(--shadow-soft)];
+  }
+
+  .hairline-grid {
+    background-image:
+      linear-gradient(hsl(0 0% 100% / 0.05) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(0 0% 100% / 0.05) 1px, transparent 1px);
+    background-size: 64px 64px;
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(22px);
+    transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none;
   }
 }
