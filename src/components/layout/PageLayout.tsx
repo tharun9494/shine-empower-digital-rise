@@ -21,7 +21,9 @@ export default function PageLayout({ children }: { children: ReactNode }) {
       </a>
       <Navbar />
       <main id="main" className="flex-1 pb-24 md:pb-0">
-        {children}
+        <div key={pathname} className="animate-fade-in">
+          {children}
+        </div>
       </main>
       <Footer />
       <FloatingCTA />

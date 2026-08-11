@@ -27,12 +27,18 @@ export default function PageShell({
         <div className="hairline-grid absolute inset-0 opacity-50" aria-hidden="true" />
         <div className="absolute -right-20 -top-20 h-72 w-72 rounded-full bg-accent/20 blur-3xl" aria-hidden="true" />
         <div className="container-x relative">
-          {eyebrow && <p className="eyebrow text-secondary">{eyebrow}</p>}
-          <h1 className="mt-4 max-w-3xl font-display text-3xl font-extrabold leading-[1.08] sm:text-5xl">
+          {eyebrow && (
+            <p className="eyebrow text-secondary animate-fade-in" style={{ animationDelay: "100ms" }}>
+              {eyebrow}
+            </p>
+          )}
+          <h1 className="mt-4 max-w-3xl font-display text-3xl font-extrabold leading-[1.08] sm:text-5xl animate-fade-in" style={{ animationDelay: "200ms" }}>
             {title}
           </h1>
           {description && (
-            <p className="mt-5 max-w-2xl text-base text-navy-foreground/75 sm:text-lg">{description}</p>
+            <p className="mt-5 max-w-2xl text-base text-navy-foreground/75 sm:text-lg animate-fade-in" style={{ animationDelay: "300ms" }}>
+              {description}
+            </p>
           )}
         </div>
       </section>
