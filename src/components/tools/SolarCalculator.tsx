@@ -46,7 +46,7 @@ export default function SolarCalculator() {
           Enter a few details and we will estimate an indicative system for you.
         </p>
 
-        <div className="mt-6 grid gap-4 sm:grid-cols-2">
+        <div className="mt-6 grid grid-cols-2 gap-3 sm:gap-4 sm:grid-cols-2">
           <div>
             <Label htmlFor="bill">Monthly electricity bill (₹)</Label>
             <Input
@@ -139,7 +139,7 @@ export default function SolarCalculator() {
             <span className="font-display text-5xl font-extrabold leading-none">{result.capacity}</span>
             <span className="mb-1 text-lg font-semibold text-secondary">kW suggested</span>
           </div>
-          <dl className="mt-6 grid grid-cols-2 gap-x-6 gap-y-4 text-sm">
+          <dl className="mt-6 grid grid-cols-2 gap-x-4 gap-y-3.5 sm:gap-x-6 sm:gap-y-4 text-xs sm:text-sm">
             {[
               ["Monthly generation", `${Math.round(result.monthly)} units`],
               ["Annual generation", `${Math.round(result.annual).toLocaleString("en-IN")} units`],

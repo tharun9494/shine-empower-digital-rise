@@ -21,8 +21,8 @@ import commercialImg from "@/assets/commercial-solar.jpg";
 import panelImg from "@/assets/panel-closeup.jpg";
 import teamImg from "@/assets/install-team.jpg";
 
-const Grid = ({ children }: { children: React.ReactNode }) => (
-  <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">{children}</ul>
+const Grid = ({ children, className }: { children: React.ReactNode; className?: string }) => (
+  <ul className={`grid grid-cols-2 gap-3 sm:gap-5 sm:grid-cols-2 lg:grid-cols-3 ${className || ""}`}>{children}</ul>
 );
 
 export function SolarSolutions() {
@@ -30,19 +30,19 @@ export function SolarSolutions() {
     <PageShell
       eyebrow="Solar solutions" title="Solar solutions for every kind of property"
       description="Residential, commercial, industrial and agricultural systems, designed around your load and site."
-      seoTitle="Solar Solutions in Andhra Pradesh | Aryan Solar"
-      seoDescription="Residential, commercial, industrial and agricultural rooftop solar solutions across Andhra Pradesh from Aryan Solar."
+      seoTitle="Solar Solutions in Andhra Pradesh | Aaryan Solar"
+      seoDescription="Residential, commercial, industrial and agricultural rooftop solar solutions across Andhra Pradesh from Aaryan Solar."
       path="/solar-solutions"
     >
       <div className="container-x">
         <Grid>
           {solutions.map((s, i) => (
             <Reveal as="li" key={s.slug} delay={i * 60}>
-              <div className="surface-card h-full p-6">
-                <s.icon className="h-6 w-6 text-primary" aria-hidden="true" />
-                <h2 className="mt-4 text-lg font-bold text-navy">{s.title}</h2>
-                <p className="mt-2 text-sm text-muted-foreground">{s.blurb}</p>
-                <Link to={`/${s.slug}`} className="mt-5 inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline">
+              <div className="surface-card h-full p-4 sm:p-6">
+                <s.icon className="h-5 w-5 sm:h-6 sm:w-6 text-primary" aria-hidden="true" />
+                <h2 className="mt-3 sm:mt-4 text-sm sm:text-lg font-bold text-navy">{s.title}</h2>
+                <p className="mt-1.5 sm:mt-2 text-xs sm:text-sm text-muted-foreground">{s.blurb}</p>
+                <Link to={`/${s.slug}`} className="mt-4 sm:mt-5 inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-primary hover:underline">
                   {s.cta} <ArrowRight className="h-4 w-4" aria-hidden="true" />
                 </Link>
               </div>
@@ -59,8 +59,8 @@ export function SolutionDetail({ slug }: { slug: string }) {
   return (
     <PageShell
       eyebrow="Solar solutions" title={s.title} description={s.detail}
-      seoTitle={`${s.title} in Andhra Pradesh | Aryan Solar`}
-      seoDescription={`${s.title} design, installation and maintenance across Andhra Pradesh by Aryan Solar. ${s.blurb}`}
+      seoTitle={`${s.title} in Andhra Pradesh | Aaryan Solar`}
+      seoDescription={`${s.title} design, installation and maintenance across Andhra Pradesh by Aaryan Solar. ${s.blurb}`}
       path={`/${s.slug}`}
     >
       <div className="container-x grid gap-10 lg:grid-cols-2">
@@ -71,17 +71,18 @@ export function SolutionDetail({ slug }: { slug: string }) {
               <li key={f} className="rounded-full bg-muted px-4 py-2 text-sm">{f}</li>
             ))}
           </ul>
-          <h3 className="mt-10 text-lg font-bold text-navy">What we include</h3>
-          <ul className="mt-4 space-y-2">
+          <h3 className="mt-8 sm:mt-10 text-base sm:text-lg font-bold text-navy">What we include</h3>
+          <ul className="mt-4 grid grid-cols-2 gap-3 sm:flex sm:flex-col sm:gap-0 sm:space-y-2">
             {s.highlights.map((h) => (
-              <li key={h} className="flex gap-2 text-sm text-foreground/80">
-                <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden="true" />{h}
+              <li key={h} className="flex gap-2 text-xs sm:text-sm text-foreground/80 leading-snug">
+                <Check className="mt-0.5 h-3.5 w-3.5 sm:h-4 sm:w-4 shrink-0 text-primary" aria-hidden="true" />
+                <span>{h}</span>
               </li>
             ))}
           </ul>
-          <Button asChild className="mt-8 rounded-full px-7"><Link to="/contact">Request site survey</Link></Button>
+          <Button asChild className="mt-6 sm:mt-8 rounded-full px-7 text-xs sm:text-sm"><Link to="/contact">Request site survey</Link></Button>
         </div>
-        <img src={teamImg} alt={`${s.title} installation by Aryan Solar technicians`} width={1280} height={960} loading="lazy"
+        <img src={teamImg} alt={`${s.title} installation by Aaryan Solar technicians`} width={1280} height={960} loading="lazy"
           className="h-full w-full rounded-2xl object-cover shadow-soft" />
       </div>
     </PageShell>
@@ -93,29 +94,29 @@ export function SolarPanelsPage() {
     <PageShell
       eyebrow="Technology" title="Solar panel technology, explained"
       description="Understand the differences between panel technologies before you compare quotations."
-      seoTitle="Solar Panels & Panel Technology | Aryan Solar Andhra Pradesh"
+      seoTitle="Solar Panels & Panel Technology | Aaryan Solar Andhra Pradesh"
       seoDescription="Monocrystalline, polycrystalline, bifacial and N-Type TOPCon solar panels compared, plus available panel brands in Andhra Pradesh."
       path="/solar-panels"
     >
       <div className="container-x space-y-16">
         <div>
           <SectionHeading eyebrow="Panel types" title="Compare panel technologies" />
-          <div className="mt-10 grid gap-5 sm:grid-cols-2">
+          <div className="mt-8 grid grid-cols-2 gap-3 sm:gap-5">
             {panelTech.map((p, i) => (
               <Reveal key={p.name} delay={i * 60}>
-                <div className="surface-card h-full p-6">
-                  <h3 className="text-lg font-bold text-navy">{p.name}</h3>
-                  <dl className="mt-4 space-y-2 text-sm">
+                <div className="surface-card h-full p-4 sm:p-6">
+                  <h3 className="text-sm sm:text-lg font-bold text-navy">{p.name}</h3>
+                  <dl className="mt-3 sm:mt-4 space-y-1.5 sm:space-y-2 text-xs sm:text-sm">
                     {[["Efficiency", p.efficiency], ["Technology", p.tech], ["Typical use", p.use], ["Space requirement", p.space], ["Cost category", p.cost]].map(([k, v]) => (
-                      <div key={k} className="flex justify-between gap-3 border-b border-border pb-1.5">
+                      <div key={k} className="flex justify-between gap-3 border-b border-border pb-1 sm:pb-1.5">
                         <dt className="text-muted-foreground">{k}</dt><dd className="text-right font-medium">{v}</dd>
                       </div>
                     ))}
                   </dl>
-                  <ul className="mt-4 space-y-1.5">
+                  <ul className="mt-3 sm:mt-4 space-y-1 sm:space-y-1.5">
                     {p.notes.map((n) => (
-                      <li key={n} className="flex gap-2 text-sm text-foreground/75">
-                        <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden="true" />{n}
+                      <li key={n} className="flex gap-1.5 text-xs sm:text-sm text-foreground/75">
+                        <Check className="mt-0.5 h-3.5 w-3.5 sm:h-4 sm:w-4 shrink-0 text-primary" aria-hidden="true" />{n}
                       </li>
                     ))}
                   </ul>
@@ -128,19 +129,19 @@ export function SolarPanelsPage() {
         <div>
           <SectionHeading eyebrow="Technology partners" title="Available / preferred brands"
             description="Brands we can source for your project, subject to availability." />
-          <Grid>
+          <Grid className="mt-8">
             {brands.map((b, i) => (
-              <Reveal as="li" key={b.name} delay={i * 50} className="mt-10">
-                <div className="surface-card h-full p-6">
-                  <p className="font-display text-lg font-bold text-navy">{b.name}</p>
-                  <dl className="mt-3 space-y-1.5 text-sm text-muted-foreground">
+              <Reveal as="li" key={b.name} delay={i * 50}>
+                <div className="surface-card h-full p-4 sm:p-6">
+                  <p className="font-display text-sm sm:text-lg font-bold text-navy">{b.name}</p>
+                  <dl className="mt-2.5 sm:mt-3 space-y-1 sm:space-y-1.5 text-xs sm:text-sm text-muted-foreground">
                     <div><dt className="inline font-medium text-foreground">Technology: </dt><dd className="inline">{b.tech}</dd></div>
                     <div><dt className="inline font-medium text-foreground">Efficiency: </dt><dd className="inline">{b.efficiency}</dd></div>
                     <div><dt className="inline font-medium text-foreground">Warranty: </dt><dd className="inline">{b.warranty}</dd></div>
                   </dl>
-                  <Button asChild variant="outline" size="sm" className="mt-5 rounded-xl">
-                    <a href={whatsappUrl(`Hello Aryan Solar, I would like to know more about ${b.name} solar panels.`)} target="_blank" rel="noopener noreferrer">
-                      Ask About This Brand
+                  <Button asChild variant="outline" size="sm" className="mt-4 sm:mt-5 rounded-xl text-xs sm:text-sm">
+                    <a href={whatsappUrl(`Hello Aaryan Solar, I would like to know more about ${b.name} solar panels.`)} target="_blank" rel="noopener noreferrer">
+                      Ask About Brand
                     </a>
                   </Button>
                 </div>
@@ -163,23 +164,23 @@ export function InvertersPage() {
     <PageShell
       eyebrow="Technology" title="Inverters and system components"
       description="The inverter defines how your system behaves. Here is how the main types differ."
-      seoTitle="Solar Inverters & System Components | Aryan Solar"
+      seoTitle="Solar Inverters & System Components | Aaryan Solar"
       seoDescription="String, hybrid and microinverters compared, plus every component in a rooftop solar system explained."
       path="/inverters"
     >
       <div className="container-x space-y-16">
-        <div className="grid gap-5 lg:grid-cols-3">
+        <div className="grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-3">
           {inverters.map((inv, i) => (
-            <Reveal key={inv.name} delay={i * 60}>
-              <div className="surface-card h-full p-6">
-                <h2 className="text-lg font-bold text-navy">{inv.name}</h2>
-                <p className="mt-2 text-sm text-muted-foreground">{inv.what}</p>
-                <p className="mt-3 text-sm"><span className="font-medium">Where it helps: </span>{inv.where}</p>
-                <p className="mt-3 text-xs font-semibold uppercase tracking-wide text-primary">Advantages</p>
-                <ul className="mt-1.5 space-y-1 text-sm text-foreground/80">{inv.pros.map((p) => <li key={p}>• {p}</li>)}</ul>
-                <p className="mt-3 text-xs font-semibold uppercase tracking-wide text-muted-foreground">Limitations</p>
-                <ul className="mt-1.5 space-y-1 text-sm text-muted-foreground">{inv.cons.map((c) => <li key={c}>• {c}</li>)}</ul>
-                <p className="mt-4 text-sm font-medium text-navy">Suitable system: {inv.system}</p>
+            <Reveal key={inv.name} delay={i * 60} className={i === 2 ? "col-span-2 sm:col-span-1" : ""}>
+              <div className="surface-card h-full p-4 sm:p-6">
+                <h2 className="text-sm sm:text-lg font-bold text-navy">{inv.name}</h2>
+                <p className="mt-1.5 sm:mt-2 text-xs sm:text-sm text-muted-foreground">{inv.what}</p>
+                <p className="mt-2.5 sm:mt-3 text-xs sm:text-sm"><span className="font-semibold text-navy">Where: </span>{inv.where}</p>
+                <p className="mt-2.5 sm:mt-3 text-[0.65rem] sm:text-xs font-semibold uppercase tracking-wide text-primary">Advantages</p>
+                <ul className="mt-1 space-y-0.5 text-xs sm:text-sm text-foreground/80">{inv.pros.map((p) => <li key={p}>• {p}</li>)}</ul>
+                <p className="mt-2.5 sm:mt-3 text-[0.65rem] sm:text-xs font-semibold uppercase tracking-wide text-muted-foreground">Limitations</p>
+                <ul className="mt-1 space-y-0.5 text-xs sm:text-sm text-muted-foreground">{inv.cons.map((c) => <li key={c}>• {c}</li>)}</ul>
+                <p className="mt-3.5 sm:mt-4 text-xs sm:text-sm font-semibold text-navy">Suitable: {inv.system}</p>
               </div>
             </Reveal>
           ))}
@@ -216,7 +217,7 @@ export function SolarCalculatorPage() {
     <PageShell
       eyebrow="Tools" title="Solar calculator"
       description="Estimate your system size, generation, subsidy, cost and payback in under a minute."
-      seoTitle="Solar Calculator for Andhra Pradesh | Aryan Solar"
+      seoTitle="Solar Calculator for Andhra Pradesh | Aaryan Solar"
       seoDescription="Calculate your rooftop solar requirement, estimated generation, subsidy and payback period for homes and businesses in Andhra Pradesh."
       path="/solar-calculator"
     >
@@ -237,31 +238,31 @@ export function SolarSubsidyPage() {
     <PageShell
       eyebrow="Government support" title="Solar Subsidy in India"
       description={`${subsidyConfig.schemeName} provides Central Financial Assistance to eligible residential rooftop customers.`}
-      seoTitle="Solar Subsidy & PM Surya Ghar in Andhra Pradesh | Aryan Solar"
+      seoTitle="Solar Subsidy & PM Surya Ghar in Andhra Pradesh | Aaryan Solar"
       seoDescription="How PM Surya Ghar: Muft Bijli Yojana residential solar subsidy works, the CFA slab structure, eligibility and how to verify current rules."
       path="/solar-subsidy"
     >
       <div className="container-x grid gap-10 lg:grid-cols-2 lg:items-start">
-        <div className="space-y-6">
-          <div className="surface-card p-6">
-            <h2 className="text-lg font-bold text-navy">Commonly applicable residential structure</h2>
-            <ul className="mt-4 space-y-2 text-sm text-foreground/80">
+        <div className="space-y-4 sm:space-y-6">
+          <div className="surface-card p-4 sm:p-6">
+            <h2 className="text-sm sm:text-lg font-bold text-navy">Commonly applicable residential structure</h2>
+            <ul className="mt-3 sm:mt-4 space-y-1.5 sm:space-y-2 text-xs sm:text-sm text-foreground/80">
               <li>First {subsidyConfig.firstSlabKw} kW — {inr(subsidyConfig.firstSlabRatePerKw)} per kW</li>
               <li>Additional {subsidyConfig.secondSlabKw} kW — {inr(subsidyConfig.secondSlabRatePerKw)} per kW</li>
               <li>Maximum CFA — {inr(subsidyConfig.maxCfa)} for eligible residential systems up to 3 kW under this structure</li>
             </ul>
           </div>
-          <div className="surface-card p-6">
-            <h2 className="text-lg font-bold text-navy">Eligibility and verification</h2>
-            <p className="mt-2 text-sm text-muted-foreground">
+          <div className="surface-card p-4 sm:p-6">
+            <h2 className="text-sm sm:text-lg font-bold text-navy">Eligibility and verification</h2>
+            <p className="mt-1.5 sm:mt-2 text-xs sm:text-sm text-muted-foreground">
               Subsidy is not automatic. Applicants must register on the national portal, be a residential
               consumer of the DISCOM, install through a registered vendor, and complete inspection and
-              net-metering. Requirements are verified by the authorities, not by Aryan Solar.
+              net-metering. Requirements are verified by the authorities, not by Aaryan Solar.
             </p>
           </div>
           <Disclaimer text={disclaimers.government} lastVerified={subsidyConfig.lastVerified}
             sourceLabel="pmsuryaghar.gov.in" sourceUrl={subsidyConfig.officialSource} />
-          <Button asChild className="rounded-full px-7"><Link to="/contact">Check My Subsidy Eligibility</Link></Button>
+          <Button asChild className="rounded-full px-7 text-xs sm:text-sm"><Link to="/contact">Check My Subsidy Eligibility</Link></Button>
         </div>
         <SubsidyCalculator />
       </div>
@@ -274,7 +275,7 @@ export function SolarPricingPage() {
     <PageShell
       eyebrow="Pricing" title="What does solar cost?"
       description="Indicative ranges from configured assumptions. Final pricing follows a site assessment."
-      seoTitle="Solar Panel Price & System Cost in Andhra Pradesh | Aryan Solar"
+      seoTitle="Solar Panel Price & System Cost in Andhra Pradesh | Aaryan Solar"
       seoDescription="Indicative 1 kW to 10 kW rooftop solar pricing, panel count, inverter type, subsidy and estimated net cost for Andhra Pradesh."
       path="/solar-pricing"
     >
@@ -286,10 +287,10 @@ export function SolarPricingPage() {
             const subsidy = calculateSubsidy(p.kw);
             return (
               <Reveal as="li" key={p.capacity} delay={i * 60}>
-                <div className={`surface-card h-full p-6 ${p.popular ? "ring-2 ring-primary" : ""}`}>
-                  <h2 className="font-display text-2xl font-extrabold text-navy">{p.capacity}</h2>
-                  <p className="mt-1 text-sm text-muted-foreground">{p.audience}</p>
-                  <dl className="mt-5 space-y-2 text-sm">
+                <div className={`surface-card h-full p-4 sm:p-6 ${p.popular ? "ring-2 ring-primary" : ""}`}>
+                  <h2 className="font-display text-base sm:text-2xl font-extrabold text-navy">{p.capacity}</h2>
+                  <p className="mt-0.5 sm:mt-1 text-[0.7rem] sm:text-sm text-muted-foreground">{p.audience}</p>
+                  <dl className="mt-3.5 sm:mt-5 space-y-1.5 sm:space-y-2 text-xs sm:text-sm">
                     {[
                       ["Est. generation", `${Math.round(p.kw * assumptions.dailyYieldPerKw * 30)} units / month`],
                       ["Panel quantity", p.panels],
@@ -305,7 +306,7 @@ export function SolarPricingPage() {
                       </div>
                     ))}
                   </dl>
-                  <Button asChild className="mt-6 w-full rounded-xl"><Link to="/contact">Get Exact Quote</Link></Button>
+                  <Button asChild className="mt-4 sm:mt-6 w-full rounded-xl text-xs sm:text-sm"><Link to="/contact">Get Exact Quote</Link></Button>
                 </div>
               </Reveal>
             );
@@ -324,9 +325,9 @@ export function ProjectsPage() {
   return (
     <PageShell
       eyebrow="Projects" title="Our solar projects"
-      description="Structured placeholder entries — replace with verified Aryan Solar projects and photographs."
-      seoTitle="Solar Projects in Andhra Pradesh | Aryan Solar"
-      seoDescription="Residential, commercial, industrial and agricultural solar projects delivered across Andhra Pradesh by Aryan Solar."
+      description="Structured placeholder entries — replace with verified Aaryan Solar projects and photographs."
+      seoTitle="Solar Projects in Andhra Pradesh | Aaryan Solar"
+      seoDescription="Residential, commercial, industrial and agricultural solar projects delivered across Andhra Pradesh by Aaryan Solar."
       path="/projects"
     >
       <div className="container-x">
@@ -339,17 +340,17 @@ export function ProjectsPage() {
             </button>
           ))}
         </div>
-        <ul className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <ul className="mt-8 grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-3">
           {list.map((p, i) => (
             <Reveal as="li" key={p.title} delay={i * 50}>
               <article className="surface-card h-full overflow-hidden">
                 <img src={p.category === "Commercial" || p.category === "Industrial" ? commercialImg : panelImg}
                   alt={`${p.title} at ${p.location}`} width={1280} height={960} loading="lazy"
-                  className="h-44 w-full object-cover" />
-                <div className="p-5">
-                  <span className="text-xs font-semibold uppercase tracking-wide text-primary">{p.category}</span>
-                  <h2 className="mt-1.5 text-base font-bold text-navy">{p.title}</h2>
-                  <dl className="mt-3 space-y-1 text-sm text-muted-foreground">
+                  className="h-28 sm:h-44 w-full object-cover" />
+                <div className="p-3 sm:p-5">
+                  <span className="text-[0.65rem] sm:text-xs font-semibold uppercase tracking-wide text-primary">{p.category}</span>
+                  <h2 className="mt-1 text-sm sm:text-base font-bold text-navy">{p.title}</h2>
+                  <dl className="mt-2.5 sm:mt-3 space-y-1 text-xs sm:text-sm text-muted-foreground">
                     <div><dt className="inline font-medium text-foreground">Location: </dt><dd className="inline">{p.location}</dd></div>
                     <div><dt className="inline font-medium text-foreground">Capacity: </dt><dd className="inline">{p.capacity}</dd></div>
                     <div><dt className="inline font-medium text-foreground">Panel brand: </dt><dd className="inline">{p.brand}</dd></div>
@@ -374,20 +375,20 @@ export function SolarGuidePage() {
     <PageShell
       eyebrow="Solar guide" title="How solar works — and how it works in Andhra Pradesh"
       description="A plain-language walkthrough of generation, system types, the AP DISCOM process and maintenance."
-      seoTitle="How Solar Works & Rooftop Solar in Andhra Pradesh | Aryan Solar"
+      seoTitle="How Solar Works & Rooftop Solar in Andhra Pradesh | Aaryan Solar"
       seoDescription="How rooftop solar works, on-grid vs off-grid vs hybrid, net metering with APCPDCL, APEPDCL and APSPDCL, and solar maintenance in Andhra Pradesh."
       path="/solar-guide"
     >
       <div className="container-x space-y-16">
         <div>
           <SectionHeading eyebrow="Energy flow" title="From sunlight to your switchboard" />
-          <ol className="mt-8 grid gap-4 lg:grid-cols-5">
+          <ol className="mt-8 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-5">
             {processSteps.map((s, i) => (
-              <Reveal as="li" key={s.no} delay={i * 70}>
-                <div className="surface-card h-full p-5">
-                  <span className="font-display text-sm font-bold text-primary">{s.no}</span>
-                  <h3 className="mt-2 text-base font-bold text-navy">{s.title}</h3>
-                  <p className="mt-1.5 text-sm text-muted-foreground">{s.text}</p>
+              <Reveal as="li" key={s.no} delay={i * 70} className={i === 4 ? "col-span-2 sm:col-span-1" : ""}>
+                <div className="surface-card h-full p-4 sm:p-5">
+                  <span className="font-display text-xs sm:text-sm font-bold text-primary">{s.no}</span>
+                  <h3 className="mt-1.5 sm:mt-2 text-sm sm:text-base font-bold text-navy">{s.title}</h3>
+                  <p className="mt-1 sm:mt-1.5 text-xs sm:text-sm text-muted-foreground">{s.text}</p>
                 </div>
               </Reveal>
             ))}
@@ -396,8 +397,8 @@ export function SolarGuidePage() {
 
         <div>
           <SectionHeading eyebrow="System types" title="On-grid, off-grid and hybrid" />
-          <div className="mt-8 overflow-x-auto">
-            <table className="w-full min-w-[560px] border-collapse overflow-hidden rounded-2xl bg-card text-sm shadow-soft">
+          <div className="mt-8 overflow-x-auto rounded-2xl border border-border">
+            <table className="w-full min-w-[560px] border-collapse overflow-hidden bg-card text-sm shadow-soft">
               <caption className="sr-only">Solar system type comparison</caption>
               <thead><tr className="bg-navy text-navy-foreground">
                 {systemComparison.head.map((h) => <th key={h} scope="col" className="px-4 py-3 text-left font-semibold">{h}</th>)}
@@ -411,11 +412,11 @@ export function SolarGuidePage() {
               </tbody>
             </table>
           </div>
-          <ul className="mt-6 grid gap-4 lg:grid-cols-3">
-            {systemTypes.map((t) => (
-              <li key={t.id} className="surface-card p-5">
-                <h3 className="text-base font-bold text-navy">{t.name}</h3>
-                <p className="mt-1.5 text-sm text-muted-foreground">{t.summary}</p>
+          <ul className="mt-6 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3">
+            {systemTypes.map((t, i) => (
+              <li key={t.id} className={`surface-card p-4 sm:p-5 ${i === 2 ? "col-span-2 sm:col-span-1" : ""}`}>
+                <h3 className="text-sm sm:text-base font-bold text-navy">{t.name}</h3>
+                <p className="mt-1 sm:mt-1.5 text-xs sm:text-sm text-muted-foreground">{t.summary}</p>
               </li>
             ))}
           </ul>
@@ -431,27 +432,27 @@ export function SolarGuidePage() {
               {districts.map((d) => <option key={d}>{d}</option>)}
             </select>
           </div>
-          <div className="surface-card mt-5 p-6">
-            <p className="text-sm text-muted-foreground">Service information for</p>
-            <h3 className="mt-1 text-lg font-bold text-navy">{district}, Andhra Pradesh</h3>
-            <p className="mt-3 text-sm"><span className="font-medium">Likely DISCOM: </span>{discom.code} — {discom.name}</p>
-            <p className="mt-1 text-sm text-muted-foreground">{discom.area}</p>
-            <p className="mt-3 text-sm text-muted-foreground">
+          <div className="surface-card mt-5 p-4 sm:p-6">
+            <p className="text-xs sm:text-sm text-muted-foreground">Service information for</p>
+            <h3 className="mt-0.5 sm:mt-1 text-sm sm:text-lg font-bold text-navy">{district}, Andhra Pradesh</h3>
+            <p className="mt-2 sm:mt-3 text-xs sm:text-sm"><span className="font-semibold text-navy">Likely DISCOM: </span>{discom.code} — {discom.name}</p>
+            <p className="mt-0.5 sm:mt-1 text-xs sm:text-sm text-muted-foreground">{discom.area}</p>
+            <p className="mt-2 sm:mt-3 text-xs sm:text-sm text-muted-foreground">
               Residential, commercial, industrial and agricultural installations are undertaken in this
               region. Net-metering steps, feasibility and applicable charges are as per your DISCOM and
               APERC regulations — we do not publish district-specific subsidy rules.
             </p>
-            <Button asChild className="mt-5 rounded-full px-6">
-              <a href={whatsappUrl(`Hello Aryan Solar, I am in ${district}, Andhra Pradesh and would like solar information for my property.`)} target="_blank" rel="noopener noreferrer">
+            <Button asChild className="mt-4 sm:mt-5 rounded-full px-6 text-xs sm:text-sm">
+              <a href={whatsappUrl(`Hello Aaryan Solar, I am in ${district}, Andhra Pradesh and would like solar information for my property.`)} target="_blank" rel="noopener noreferrer">
                 Ask about {district}
               </a>
             </Button>
           </div>
-          <ul className="mt-6 grid gap-4 lg:grid-cols-3">
-            {discoms.map((d) => (
-              <li key={d.code} className="surface-card p-5">
-                <h3 className="text-base font-bold text-navy">{d.code}</h3>
-                <p className="mt-1 text-sm text-muted-foreground">{d.name}</p>
+          <ul className="mt-6 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3">
+            {discoms.map((d, i) => (
+              <li key={d.code} className={`surface-card p-4 sm:p-5 ${i === 2 ? "col-span-2 sm:col-span-1" : ""}`}>
+                <h3 className="text-sm sm:text-base font-bold text-navy">{d.code}</h3>
+                <p className="mt-1 text-xs sm:text-sm text-muted-foreground">{d.name}</p>
               </li>
             ))}
           </ul>
@@ -461,22 +462,22 @@ export function SolarGuidePage() {
 
         <div>
           <SectionHeading eyebrow="Maintenance" title="Solar care & maintenance" />
-          <Grid>
+          <Grid className="mt-6">
             {maintenanceItems.map((m, i) => (
-              <Reveal as="li" key={m.title} delay={i * 50} className="mt-8">
-                <div className="surface-card h-full p-5">
-                  <h3 className="text-base font-bold text-navy">{m.title}</h3>
-                  <p className="mt-1.5 text-sm text-muted-foreground">{m.text}</p>
+              <Reveal as="li" key={m.title} delay={i * 50}>
+                <div className="surface-card h-full p-4 sm:p-5">
+                  <h3 className="text-sm sm:text-base font-bold text-navy">{m.title}</h3>
+                  <p className="mt-1.5 text-xs sm:text-sm text-muted-foreground">{m.text}</p>
                 </div>
               </Reveal>
             ))}
           </Grid>
-          <ul className="mt-6 grid gap-4 lg:grid-cols-3">
-            {servicePlans.map((p) => (
-              <li key={p.name} className="surface-card p-6">
-                <h3 className="text-base font-bold text-navy">{p.name}</h3>
-                <p className="text-xs uppercase tracking-wide text-muted-foreground">{p.period}</p>
-                <ul className="mt-3 space-y-1.5 text-sm text-foreground/80">
+          <ul className="mt-6 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-3">
+            {servicePlans.map((p, i) => (
+              <li key={p.name} className={`surface-card p-4 sm:p-6 ${i === 2 ? "col-span-2 sm:col-span-1" : ""}`}>
+                <h3 className="text-sm sm:text-base font-bold text-navy">{p.name}</h3>
+                <p className="text-[0.65rem] sm:text-xs uppercase tracking-wide text-muted-foreground">{p.period}</p>
+                <ul className="mt-2.5 sm:mt-3 space-y-1 sm:space-y-1.5 text-xs sm:text-sm text-foreground/80">
                   {p.items.map((it) => <li key={it}>• {it}</li>)}
                 </ul>
               </li>
@@ -493,7 +494,7 @@ export function BlogPage() {
     <PageShell
       eyebrow="Knowledge hub" title="Learn about solar"
       description="Guides on solar basics, cost, subsidy, technology and maintenance."
-      seoTitle="Solar Knowledge Hub & Blog | Aryan Solar Andhra Pradesh"
+      seoTitle="Solar Knowledge Hub & Blog | Aaryan Solar Andhra Pradesh"
       seoDescription="Guides on solar cost, PM Surya Ghar subsidy, on-grid vs hybrid systems, panel counts and maintenance for Andhra Pradesh homes and businesses."
       path="/blog"
     >
@@ -503,14 +504,14 @@ export function BlogPage() {
             <li key={c} className="rounded-full bg-muted px-4 py-2 text-sm text-foreground/75">{c}</li>
           ))}
         </ul>
-        <ul className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <ul className="mt-10 grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-3">
           {blogPosts.map((p, i) => (
             <Reveal as="li" key={p.slug} delay={i * 50}>
-              <article className="surface-card h-full p-6">
-                <span className="text-xs font-semibold uppercase tracking-wide text-primary">{p.category}</span>
-                <h2 className="mt-2 text-base font-bold text-navy">{p.title}</h2>
-                <p className="mt-2 text-sm text-muted-foreground">{p.excerpt}</p>
-                <p className="mt-4 text-xs text-muted-foreground">Article content to be published at /blog/{p.slug}</p>
+              <article className="surface-card h-full p-4 sm:p-6">
+                <span className="text-[0.65rem] sm:text-xs font-semibold uppercase tracking-wide text-primary">{p.category}</span>
+                <h2 className="mt-1.5 sm:mt-2 text-sm sm:text-base font-bold text-navy">{p.title}</h2>
+                <p className="mt-1.5 sm:mt-2 text-xs sm:text-sm text-muted-foreground">{p.excerpt}</p>
+                <p className="mt-3.5 sm:mt-4 text-[0.65rem] sm:text-xs text-muted-foreground">Article content at /blog/{p.slug}</p>
               </article>
             </Reveal>
           ))}
@@ -525,7 +526,7 @@ export function FaqPage() {
     <PageShell
       eyebrow="FAQ" title="Frequently asked questions"
       description="Everything customers usually ask before going solar."
-      seoTitle="Solar FAQs — Cost, Subsidy, Net Metering | Aryan Solar"
+      seoTitle="Solar FAQs — Cost, Subsidy, Net Metering | Aaryan Solar"
       seoDescription="Answers to common rooftop solar questions on cost, panel count, net metering, PM Surya Ghar subsidy, maintenance and installation timelines."
       path="/faq"
     >
@@ -547,13 +548,13 @@ export function AboutPage() {
   return (
     <PageShell
       eyebrow="About us" title="Building a Brighter Energy Future"
-      description="Aryan Solar is a solar rooftop company serving homes, businesses, industries and farms across Andhra Pradesh."
-      seoTitle="About Aryan Solar — Solar Company in Andhra Pradesh"
-      seoDescription="Aryan Solar's mission, vision, values and approach to rooftop solar consultation, design, installation and support in Andhra Pradesh."
+      description="Aaryan Solar is a solar rooftop company serving homes, businesses, industries and farms across Andhra Pradesh."
+      seoTitle="About Aaryan Solar — Solar Company in Andhra Pradesh"
+      seoDescription="Aaryan Solar's mission, vision, values and approach to rooftop solar consultation, design, installation and support in Andhra Pradesh."
       path="/about"
     >
       <div className="container-x space-y-14">
-        <div className="grid gap-5 sm:grid-cols-2">
+        <div className="grid grid-cols-2 gap-3 sm:gap-5">
           {[
             ["Our Mission", "Make well-engineered solar accessible to households and businesses in Andhra Pradesh, with transparent advice at every step."],
             ["Our Vision", "A state where rooftops carry a meaningful share of the electricity people use every day."],
@@ -561,26 +562,26 @@ export function AboutPage() {
             ["Our Approach", "Bill analysis, site survey, engineered design, documented installation and long-term support — in that order."],
           ].map(([title, text], i) => (
             <Reveal key={title} delay={i * 60}>
-              <div className="surface-card h-full p-6">
-                <h2 className="text-lg font-bold text-navy">{title}</h2>
-                <p className="mt-2 text-sm text-muted-foreground">{text}</p>
+              <div className="surface-card h-full p-4 sm:p-6">
+                <h2 className="text-sm sm:text-lg font-bold text-navy">{title}</h2>
+                <p className="mt-1.5 sm:mt-2 text-xs sm:text-sm text-muted-foreground">{text}</p>
               </div>
             </Reveal>
           ))}
         </div>
-        <p className="text-sm text-muted-foreground">
+        <p className="text-xs sm:text-sm text-muted-foreground">
           Company history, founding year, team size and certifications are intentionally left blank
-          until verified details are supplied by Aryan Solar.
+          until verified details are supplied by Aaryan Solar.
         </p>
         <div>
-          <SectionHeading eyebrow="Why choose us" title="Why choose Aryan Solar" />
-          <Grid>
+          <SectionHeading eyebrow="Why choose us" title="Why choose Aaryan Solar" />
+          <Grid className="mt-6">
             {whyAryan.map((w, i) => (
-              <Reveal as="li" key={w.title} delay={i * 50} className="mt-8">
-                <div className="surface-card h-full p-6">
-                  <Check className="h-5 w-5 text-primary" aria-hidden="true" />
-                  <h3 className="mt-3 text-base font-bold text-navy">{w.title}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground">{w.text}</p>
+              <Reveal as="li" key={w.title} delay={i * 50}>
+                <div className="surface-card h-full p-4 sm:p-6">
+                  <Check className="h-4 w-4 sm:h-5 sm:w-5 text-primary" aria-hidden="true" />
+                  <h3 className="mt-3 text-sm sm:text-base font-bold text-navy">{w.title}</h3>
+                  <p className="mt-1.5 sm:mt-2 text-xs sm:text-sm text-muted-foreground">{w.text}</p>
                 </div>
               </Reveal>
             ))}
@@ -608,36 +609,44 @@ export function ContactPage() {
     <PageShell
       eyebrow="Contact" title="Talk to a solar expert"
       description="Share a few details and we will get back with a suitable system and quotation."
-      seoTitle="Contact Aryan Solar — Free Solar Quote in Andhra Pradesh"
-      seoDescription="Request a free solar quote, book a rooftop site assessment or reach Aryan Solar on WhatsApp and phone in Andhra Pradesh."
+      seoTitle="Contact Aaryan Solar — Free Solar Quote in Andhra Pradesh"
+      seoDescription="Request a free solar quote, book a rooftop site assessment or reach Aaryan Solar on WhatsApp and phone in Andhra Pradesh."
       path="/contact"
     >
       <div className="container-x grid gap-10 lg:grid-cols-[1.1fr_1fr] lg:items-start">
         <QuoteForm />
         <div className="space-y-6">
-          <div className="surface-card p-6">
-            <h2 className="text-lg font-bold text-navy">Visit Aryan Solar</h2>
-            <dl className="mt-4 space-y-2 text-sm">
-              <div><dt className="inline font-medium">Address: </dt>
-                <dd className="inline text-muted-foreground">{site.address.line1}, {site.address.city}, {site.address.state} {site.address.pincode}</dd></div>
-              <div><dt className="inline font-medium">Phone: </dt>
-                <dd className="inline"><a href={telUrl} className="text-primary underline underline-offset-4">{site.phone}</a></dd></div>
-              <div><dt className="inline font-medium">WhatsApp: </dt>
-                <dd className="inline"><a href={whatsappUrl()} target="_blank" rel="noopener noreferrer" className="text-primary underline underline-offset-4">Chat with us</a></dd></div>
-              <div><dt className="inline font-medium">Email: </dt>
-                <dd className="inline"><a href={`mailto:${site.email}`} className="text-primary underline underline-offset-4">{site.email}</a></dd></div>
+          <div className="surface-card p-4 sm:p-6">
+            <h2 className="text-sm sm:text-lg font-bold text-navy">Visit Aaryan Solar</h2>
+            <dl className="mt-4 grid grid-cols-2 gap-3 text-xs sm:text-sm">
+              <div className="col-span-2">
+                <dt className="inline font-semibold">Address: </dt>
+                <dd className="inline text-muted-foreground">{site.address.line1}, {site.address.city}, {site.address.state} {site.address.pincode}</dd>
+              </div>
+              <div className="col-span-1">
+                <dt className="block font-semibold">Phone: </dt>
+                <dd className="block mt-0.5"><a href={telUrl} className="text-primary underline underline-offset-4">{site.phone}</a></dd>
+              </div>
+              <div className="col-span-1">
+                <dt className="block font-semibold">WhatsApp: </dt>
+                <dd className="block mt-0.5"><a href={whatsappUrl()} target="_blank" rel="noopener noreferrer" className="text-primary underline underline-offset-4">Chat with us</a></dd>
+              </div>
+              <div className="col-span-2">
+                <dt className="block font-semibold">Email: </dt>
+                <dd className="block mt-0.5"><a href={`mailto:${site.email}`} className="text-primary underline underline-offset-4">{site.email}</a></dd>
+              </div>
             </dl>
-            <ul className="mt-4 space-y-1 text-sm text-muted-foreground">
+            <ul className="mt-4 space-y-1 text-xs sm:text-sm text-muted-foreground">
               {site.workingHours.map((w) => <li key={w.days}>{w.days}: {w.hours}</li>)}
             </ul>
-            <p className="mt-3 text-xs text-muted-foreground">
+            <p className="mt-3 text-[0.7rem] sm:text-xs text-muted-foreground">
               Address and map are placeholders until the client's verified office location is supplied.
             </p>
           </div>
 
           <div className="surface-card overflow-hidden">
             <iframe
-              title="Aryan Solar location on Google Maps"
+              title="Aaryan Solar location on Google Maps"
               src={`https://www.google.com/maps?q=${encodeURIComponent(site.maps.embedQuery)}&output=embed`}
               className="h-72 w-full border-0"
               loading="lazy"
@@ -650,14 +659,14 @@ export function ContactPage() {
             </div>
           </div>
 
-          <div className="surface-card p-6">
-            <h2 className="text-lg font-bold text-navy">Not sure what you need?</h2>
-            <p className="mt-2 text-sm text-muted-foreground">
+          <div className="surface-card p-4 sm:p-6">
+            <h2 className="text-sm sm:text-lg font-bold text-navy">Not sure what you need?</h2>
+            <p className="mt-1.5 sm:mt-2 text-xs sm:text-sm text-muted-foreground">
               Let our solar experts assess your property. Share your details on WhatsApp with your
               preferred appointment date and we will schedule a free site assessment.
             </p>
-            <Button asChild className="mt-5 rounded-full px-6">
-              <a href={whatsappUrl("Hello Aryan Solar, I would like to book a free rooftop site assessment. Name: , Location: , Monthly electricity bill: , Property type: , Roof area: , Preferred date: ")}
+            <Button asChild className="mt-4 sm:mt-5 rounded-full px-6 text-xs sm:text-sm">
+              <a href={whatsappUrl("Hello Aaryan Solar, I would like to book a free rooftop site assessment. Name: , Location: , Monthly electricity bill: , Property type: , Roof area: , Preferred date: ")}
                 target="_blank" rel="noopener noreferrer">Book Free Site Assessment</a>
             </Button>
           </div>

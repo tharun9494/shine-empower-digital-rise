@@ -32,13 +32,13 @@ export default function Index() {
   return (
     <PageLayout>
       <PageSeo
-        title="Aryan Solar — Rooftop Solar Company in Andhra Pradesh"
+        title="Aaryan Solar — Rooftop Solar Company in Andhra Pradesh"
         description="Rooftop solar for homes, businesses, industries and farms across Andhra Pradesh. Free solar quote, solar calculator and PM Surya Ghar subsidy assistance."
         path="/"
       />
 
       {/* HERO */}
-      <section className="relative min-h-[92vh] overflow-hidden pt-28">
+      <section className="relative min-h-[90vh] overflow-hidden pt-24 sm:pt-28">
         <img
           src={heroImg}
           alt="Modern Indian home in Andhra Pradesh with a rooftop solar panel array at sunrise"
@@ -47,34 +47,34 @@ export default function Index() {
           className="absolute inset-0 h-full w-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-navy/95 via-navy/80 to-navy/40" aria-hidden="true" />
-        <div className="container-x relative flex min-h-[70vh] flex-col justify-center py-16">
-          <p className="eyebrow text-secondary animate-fade-in">
+        <div className="container-x relative flex min-h-[65vh] flex-col justify-center py-10 sm:py-16">
+          <p className="eyebrow text-secondary animate-fade-in text-xs sm:text-sm">
             Smart Solar • Clean Energy • Lower Bills
           </p>
-          <h1 className="mt-5 max-w-3xl font-display text-4xl font-extrabold leading-[1.05] text-navy-foreground sm:text-5xl lg:text-[4.25rem]">
+          <h1 className="mt-4 sm:mt-5 max-w-3xl font-display text-3xl font-extrabold leading-[1.05] text-navy-foreground sm:text-5xl lg:text-[4.25rem]">
             Turn Sunlight Into Savings.
           </h1>
-          <p className="mt-6 max-w-2xl text-base leading-relaxed text-navy-foreground/80 sm:text-lg">
-            Power your home or business with reliable solar solutions from Aryan Solar — from
+          <p className="mt-4 sm:mt-6 max-w-2xl text-xs sm:text-lg leading-relaxed text-navy-foreground/80">
+            Power your home or business with reliable solar solutions from Aaryan Solar — from
             consultation and system design to installation, subsidy assistance and long-term support.
           </p>
-          <div className="mt-9 flex flex-col gap-3 sm:flex-row sm:items-center">
-            <Button asChild size="lg" className="rounded-full px-8">
+          <div className="mt-8 grid grid-cols-2 gap-3 sm:flex sm:flex-row sm:items-center sm:gap-3">
+            <Button asChild className="h-10 sm:h-12 text-xs sm:text-sm px-4 sm:px-8 rounded-full col-span-1">
               <Link to="/contact">Get Free Solar Quote</Link>
             </Button>
-            <Button asChild size="lg" variant="outline"
-              className="rounded-full border-navy-foreground/25 bg-transparent px-8 text-navy-foreground hover:bg-navy-foreground/10 hover:text-navy-foreground">
-              <Link to="/solar-calculator">Calculate My Solar</Link>
+            <Button asChild variant="outline"
+              className="h-10 sm:h-12 text-xs sm:text-sm px-4 sm:px-8 rounded-full col-span-1 border-navy-foreground/25 bg-transparent text-navy-foreground hover:bg-navy-foreground/10 hover:text-navy-foreground">
+              <Link to="/solar-calculator">Calculate Solar</Link>
             </Button>
-            <Link to="/solar-solutions" className="inline-flex items-center gap-2 px-2 py-3 text-sm font-semibold text-secondary hover:underline">
+            <Link to="/solar-solutions" className="col-span-2 text-center inline-flex items-center justify-center gap-2 py-2 text-xs sm:text-sm font-semibold text-secondary hover:underline sm:col-span-1">
               Explore Solar Solutions <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </Link>
           </div>
 
-          <ul className="mt-12 flex flex-wrap gap-2.5">
+          <ul className="mt-10 grid grid-cols-2 gap-2 max-w-lg sm:flex sm:flex-wrap sm:gap-2.5 sm:max-w-none">
             {trustChips.map(({ label, icon: Icon }) => (
               <li key={label}
-                className="inline-flex items-center gap-2 rounded-full border border-navy-foreground/15 bg-navy-foreground/5 px-4 py-2 text-xs font-medium text-navy-foreground/85 backdrop-blur-sm sm:text-sm">
+                className="inline-flex items-center justify-center gap-1.5 rounded-full border border-navy-foreground/15 bg-navy-foreground/5 px-3 py-1.5 text-[0.7rem] font-medium text-navy-foreground/85 backdrop-blur-sm sm:px-4 sm:py-2 sm:text-sm">
                 <Icon className="h-3.5 w-3.5 text-secondary" aria-hidden="true" /> {label}
               </li>
             ))}
@@ -84,16 +84,16 @@ export default function Index() {
 
       {/* STATS */}
       {site.showStats && (
-        <section className="border-b border-border bg-card py-14">
-          <div className="container-x grid grid-cols-2 gap-8 lg:grid-cols-4">
+        <section className="border-b border-border bg-card py-8 sm:py-14">
+          <div className="container-x grid grid-cols-2 gap-5 lg:grid-cols-4">
             {site.stats.map((s, i) => (
               <Reveal key={s.label} delay={i * 80}>
-                <p className="font-display text-3xl font-extrabold text-navy sm:text-4xl">
+                <p className="font-display text-2xl font-extrabold text-navy sm:text-4xl">
                   {s.value}
                   <span className="text-primary">{s.suffix}</span>
                 </p>
-                <p className="mt-1 text-sm font-medium text-foreground">{s.label}</p>
-                <p className="mt-0.5 text-xs text-muted-foreground">{s.note}</p>
+                <p className="mt-1 text-[0.75rem] sm:text-sm font-medium text-foreground">{s.label}</p>
+                <p className="mt-0.5 text-[0.65rem] sm:text-xs text-muted-foreground">{s.note}</p>
               </Reveal>
             ))}
           </div>
@@ -101,22 +101,22 @@ export default function Index() {
       )}
 
       {/* WHY SOLAR */}
-      <section className="py-20 sm:py-24">
+      <section className="py-12 sm:py-24">
         <div className="container-x">
           <SectionHeading
             eyebrow="Why solar"
             title="Why Switch to Solar?"
             description="Solar changes how you buy electricity — from a monthly expense to an asset on your roof."
           />
-          <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <ul className="mt-12 grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-3">
             {whySolar.map((item, i) => (
               <Reveal as="li" key={item.title} delay={i * 60}>
-                <div className="surface-card group h-full p-6 transition-all hover:-translate-y-1 hover:shadow-lift">
-                  <span className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                    <Sun className="h-5 w-5" aria-hidden="true" />
+                <div className="surface-card group h-full p-4 sm:p-6 transition-all hover:-translate-y-1 hover:shadow-lift">
+                  <span className="inline-flex h-8 w-8 sm:h-10 sm:w-10 items-center justify-center rounded-xl bg-primary/10 text-primary">
+                    <Sun className="h-4.5 w-4.5 sm:h-5 sm:w-5" aria-hidden="true" />
                   </span>
-                  <h3 className="mt-5 text-lg font-bold text-navy">{item.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{item.text}</p>
+                  <h3 className="mt-3 sm:mt-5 text-sm sm:text-lg font-bold text-navy">{item.title}</h3>
+                  <p className="mt-1.5 sm:mt-2 text-[0.75rem] leading-relaxed sm:text-sm text-muted-foreground">{item.text}</p>
                 </div>
               </Reveal>
             ))}
@@ -148,25 +148,25 @@ export default function Index() {
       </section>
 
       {/* SOLUTIONS */}
-      <section className="bg-muted/50 py-20 sm:py-24">
+      <section className="bg-muted/50 py-12 sm:py-24">
         <div className="container-x">
           <SectionHeading eyebrow="Solar solutions" title="Built for your kind of site"
             description="Every property has a different load pattern, roof and approval path. Pick your category to see how we approach it." />
-          <ul className="mt-12 grid gap-5 sm:grid-cols-2">
+          <ul className="mt-8 grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-4">
             {solutions.map((s, i) => (
               <Reveal as="li" key={s.slug} delay={i * 70}>
-                <div className="surface-card flex h-full flex-col p-7 transition-all hover:-translate-y-1 hover:shadow-lift">
-                  <span className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-solar text-navy">
-                    <s.icon className="h-5 w-5" aria-hidden="true" />
+                <div className="surface-card flex h-full flex-col p-4 sm:p-7 transition-all hover:-translate-y-1 hover:shadow-lift">
+                  <span className="inline-flex h-9 w-9 sm:h-11 sm:w-11 items-center justify-center rounded-xl bg-gradient-solar text-navy">
+                    <s.icon className="h-4.5 w-4.5 sm:h-5 sm:w-5" aria-hidden="true" />
                   </span>
-                  <h3 className="mt-5 text-xl font-bold text-navy">{s.title}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground">{s.blurb}</p>
-                  <ul className="mt-4 flex flex-wrap gap-2">
+                  <h3 className="mt-4 sm:mt-5 text-sm sm:text-xl font-bold text-navy">{s.title}</h3>
+                  <p className="mt-1.5 sm:mt-2 text-xs sm:text-sm text-muted-foreground">{s.blurb}</p>
+                  <ul className="mt-3 flex-wrap gap-1.5 hidden sm:flex">
                     {s.forWhom.map((f) => (
                       <li key={f} className="rounded-full bg-muted px-3 py-1 text-xs text-foreground/75">{f}</li>
                     ))}
                   </ul>
-                  <Link to={`/${s.slug}`} className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-primary hover:underline">
+                  <Link to={`/${s.slug}`} className="mt-4 sm:mt-6 inline-flex items-center gap-2 text-xs sm:text-sm font-semibold text-primary hover:underline">
                     {s.cta} <ArrowRight className="h-4 w-4" aria-hidden="true" />
                   </Link>
                 </div>
@@ -177,20 +177,20 @@ export default function Index() {
       </section>
 
       {/* SYSTEM TYPES */}
-      <section className="py-20 sm:py-24">
+      <section className="py-12 sm:py-24">
         <div className="container-x">
           <SectionHeading eyebrow="System types" title="On-Grid, Off-Grid or Hybrid?"
             description="The right architecture depends on your grid reliability and whether you need backup." />
-          <div className="mt-12 grid gap-5 lg:grid-cols-3">
+          <div className="mt-8 grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-3">
             {systemTypes.map((t, i) => (
-              <Reveal key={t.id} delay={i * 70}>
-                <div className="surface-card h-full p-6">
-                  <h3 className="text-lg font-bold text-navy">{t.name}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground">{t.summary}</p>
-                  <ul className="mt-4 space-y-2">
+              <Reveal key={t.id} delay={i * 70} className={i === 2 ? "col-span-2 sm:col-span-1" : ""}>
+                <div className="surface-card h-full p-4 sm:p-6">
+                  <h3 className="text-sm sm:text-lg font-bold text-navy">{t.name}</h3>
+                  <p className="mt-1.5 sm:mt-2 text-xs sm:text-sm text-muted-foreground">{t.summary}</p>
+                  <ul className="mt-3 sm:mt-4 space-y-1.5 sm:space-y-2 text-xs sm:text-sm text-foreground/80">
                     {t.points.map((p) => (
-                      <li key={p} className="flex gap-2 text-sm text-foreground/80">
-                        <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden="true" />{p}
+                      <li key={p} className="flex gap-2 leading-snug">
+                        <Check className="mt-0.5 h-3.5 w-3.5 sm:h-4 sm:w-4 shrink-0 text-primary" aria-hidden="true" /><span>{p}</span>
                       </li>
                     ))}
                   </ul>
@@ -224,19 +224,19 @@ export default function Index() {
       </section>
 
       {/* HOW SOLAR WORKS */}
-      <section className="relative overflow-hidden bg-navy py-20 text-navy-foreground sm:py-24">
+      <section className="relative overflow-hidden bg-navy py-12 text-navy-foreground sm:py-24">
         <div className="hairline-grid absolute inset-0 opacity-50" aria-hidden="true" />
         <div className="container-x relative">
           <SectionHeading onDark eyebrow="How solar works" title="From sunlight to your switchboard"
             description="Five steps, one continuous flow of energy across your rooftop system." />
-          <ol className="mt-12 grid gap-4 lg:grid-cols-5">
+          <ol className="mt-8 grid grid-cols-2 gap-3 sm:gap-4 lg:grid-cols-5">
             {processSteps.map((s, i) => (
-              <Reveal as="li" key={s.no} delay={i * 90}>
-                <div className="relative h-full rounded-2xl border border-navy-foreground/12 bg-navy-foreground/5 p-5">
-                  <span className="font-display text-sm font-bold text-secondary">{s.no}</span>
-                  <h3 className="mt-3 text-base font-bold">{s.title}</h3>
-                  <p className="mt-2 text-sm text-navy-foreground/70">{s.text}</p>
-                  <div className="mt-4 h-1 overflow-hidden rounded-full bg-navy-foreground/10">
+              <Reveal as="li" key={s.no} delay={i * 90} className={i === 4 ? "col-span-2 sm:col-span-1" : ""}>
+                <div className="relative h-full rounded-2xl border border-navy-foreground/12 bg-navy-foreground/5 p-3.5 sm:p-5">
+                  <span className="font-display text-[0.75rem] sm:text-sm font-bold text-secondary">{s.no}</span>
+                  <h3 className="mt-1.5 sm:mt-3 text-sm sm:text-base font-bold">{s.title}</h3>
+                  <p className="mt-1 sm:mt-2 text-[0.75rem] sm:text-sm text-navy-foreground/70">{s.text}</p>
+                  <div className="mt-3 sm:mt-4 h-1 overflow-hidden rounded-full bg-navy-foreground/10">
                     <div className="h-full w-full bg-[linear-gradient(90deg,transparent,hsl(var(--secondary)),transparent)] bg-[length:200%_100%] animate-flow" />
                   </div>
                 </div>
@@ -247,26 +247,26 @@ export default function Index() {
       </section>
 
       {/* CALCULATOR */}
-      <section className="py-20 sm:py-24">
+      <section className="py-12 sm:py-24">
         <div className="container-x">
           <SectionHeading eyebrow="Solar calculator" title="Estimate Your Solar System"
             description="Enter your bill and roof area to see an indicative capacity, generation, subsidy and payback." />
-          <div className="mt-12"><SolarCalculator /></div>
+          <div className="mt-8"><SolarCalculator /></div>
         </div>
       </section>
 
       {/* SUBSIDY */}
-      <section className="bg-muted/50 py-20 sm:py-24">
+      <section className="bg-muted/50 py-12 sm:py-24">
         <div className="container-x grid gap-10 lg:grid-cols-2 lg:items-start">
           <div>
             <SectionHeading eyebrow="Government support" title="Solar Subsidy in India"
               description="PM Surya Ghar: Muft Bijli Yojana provides Central Financial Assistance to eligible residential rooftop customers. Eligibility, documentation and current rates must be verified on the official portal." />
-            <ul className="mt-6 space-y-2 text-sm text-foreground/80">
+            <ul className="mt-4 sm:mt-6 space-y-2 text-xs sm:text-sm text-foreground/80">
               {["Applies to eligible residential customers only", "Installation through a registered vendor", "Net metering and inspection must be completed", "Assistance is credited as per scheme rules"].map((p) => (
-                <li key={p} className="flex gap-2"><Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" aria-hidden="true" />{p}</li>
+                <li key={p} className="flex gap-2"><Check className="mt-0.5 h-3.5 w-3.5 sm:h-4 sm:w-4 shrink-0 text-primary" aria-hidden="true" />{p}</li>
               ))}
             </ul>
-            <Button asChild className="mt-7 rounded-full px-7">
+            <Button asChild className="mt-5 sm:mt-7 rounded-full px-7 text-xs sm:text-sm">
               <Link to="/solar-subsidy">Check My Subsidy Eligibility</Link>
             </Button>
           </div>
@@ -275,26 +275,26 @@ export default function Index() {
       </section>
 
       {/* PRICING */}
-      <section className="py-20 sm:py-24">
+      <section className="py-12 sm:py-24">
         <div className="container-x">
           <SectionHeading eyebrow="Pricing" title="What Does Solar Cost?"
             description="Indicative, editable ranges based on configured assumptions. Exact pricing follows a site assessment." />
-          <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <ul className="mt-12 grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-3">
             {packages.map((p, i) => {
               const min = p.kw * assumptions.costPerKw.min;
               const max = p.kw * assumptions.costPerKw.max;
               const subsidy = calculateSubsidy(p.kw);
               return (
                 <Reveal as="li" key={p.capacity} delay={i * 60}>
-                  <div className={`surface-card h-full p-6 ${p.popular ? "ring-2 ring-primary" : ""}`}>
+                  <div className={`surface-card h-full p-4 sm:p-6 ${p.popular ? "ring-2 ring-primary" : ""}`}>
                     {p.popular && (
-                      <span className="mb-3 inline-block rounded-full bg-primary/10 px-3 py-1 text-xs font-semibold text-primary">
+                      <span className="mb-2 sm:mb-3 inline-block rounded-full bg-primary/10 px-2.5 py-0.5 sm:px-3 sm:py-1 text-[0.65rem] sm:text-xs font-semibold text-primary">
                         Popular
                       </span>
                     )}
-                    <h3 className="font-display text-2xl font-extrabold text-navy">{p.capacity}</h3>
-                    <p className="mt-1 text-sm text-muted-foreground">{p.audience}</p>
-                    <dl className="mt-5 space-y-2 text-sm">
+                    <h3 className="font-display text-lg sm:text-2xl font-extrabold text-navy">{p.capacity}</h3>
+                    <p className="mt-0.5 sm:mt-1 text-xs sm:text-sm text-muted-foreground">{p.audience}</p>
+                    <dl className="mt-4 sm:mt-5 space-y-1.5 sm:space-y-2 text-[0.75rem] sm:text-sm">
                       {[
                         ["Est. generation", `${Math.round(p.kw * assumptions.dailyYieldPerKw * 30)} units / month`],
                         ["Panels", p.panels],
@@ -304,13 +304,13 @@ export default function Index() {
                         ["Possible subsidy", subsidy > 0 ? inr(subsidy) : "Not applicable"],
                         ["Est. net cost", `${inr(Math.max(min - subsidy, 0))} – ${inr(Math.max(max - subsidy, 0))}`],
                       ].map(([k, v]) => (
-                        <div key={k} className="flex justify-between gap-3 border-b border-border pb-1.5">
+                        <div key={k} className="flex justify-between gap-3 border-b border-border pb-1 sm:pb-1.5">
                           <dt className="text-muted-foreground">{k}</dt>
                           <dd className="text-right font-medium">{v}</dd>
                         </div>
                       ))}
                     </dl>
-                    <Button asChild variant="outline" className="mt-6 w-full rounded-xl">
+                    <Button asChild variant="outline" className="mt-4 sm:mt-6 w-full rounded-xl text-xs sm:text-sm">
                       <Link to="/contact">Get Exact Quote</Link>
                     </Button>
                   </div>
@@ -323,62 +323,62 @@ export default function Index() {
       </section>
 
       {/* PROJECTS */}
-      <section className="bg-muted/50 py-20 sm:py-24">
+      <section className="bg-muted/50 py-12 sm:py-24">
         <div className="container-x">
           <SectionHeading eyebrow="Projects" title="Recent work across Andhra Pradesh"
-            description="Project entries below are structured placeholders — replace with verified Aryan Solar projects and photos." />
-          <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            description="Project entries below are structured placeholders — replace with verified Aaryan Solar projects and photos." />
+          <ul className="mt-8 grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-3">
             {projects.slice(0, 3).map((p, i) => (
-              <Reveal as="li" key={p.title} delay={i * 70}>
-                <article className="surface-card overflow-hidden">
+              <Reveal as="li" key={p.title} delay={i * 70} className={i === 2 ? "col-span-2 sm:col-span-1" : ""}>
+                <article className="surface-card h-full overflow-hidden">
                   <img
                     src={p.category === "Commercial" ? commercialImg : panelImg}
                     alt={`${p.title} in ${p.location}`}
                     width={1280} height={960} loading="lazy"
-                    className="h-44 w-full object-cover"
+                    className="h-28 sm:h-44 w-full object-cover"
                   />
-                  <div className="p-5">
-                    <span className="text-xs font-semibold uppercase tracking-wide text-primary">{p.category}</span>
-                    <h3 className="mt-1.5 text-base font-bold text-navy">{p.title}</h3>
-                    <p className="mt-1 text-sm text-muted-foreground">{p.location} • {p.capacity}</p>
+                  <div className="p-3 sm:p-5">
+                    <span className="text-[0.65rem] sm:text-xs font-semibold uppercase tracking-wide text-primary">{p.category}</span>
+                    <h3 className="mt-1 text-sm sm:text-base font-bold text-navy">{p.title}</h3>
+                    <p className="mt-0.5 text-xs sm:text-sm text-muted-foreground">{p.location} • {p.capacity}</p>
                   </div>
                 </article>
               </Reveal>
             ))}
           </ul>
-          <Button asChild variant="outline" className="mt-8 rounded-full">
+          <Button asChild variant="outline" className="mt-6 sm:mt-8 rounded-full text-xs sm:text-sm px-6">
             <Link to="/projects">View all projects</Link>
           </Button>
         </div>
       </section>
 
       {/* WHY ARYAN + PROCESS */}
-      <section className="py-20 sm:py-24">
+      <section className="py-12 sm:py-24">
         <div className="container-x">
-          <SectionHeading eyebrow="Why Aryan Solar" title="Engineering first, sales second" />
-          <ul className="mt-12 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <SectionHeading eyebrow="Why Aaryan Solar" title="Engineering first, sales second" />
+          <ul className="mt-8 grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-3">
             {whyAryan.map((w, i) => (
               <Reveal as="li" key={w.title} delay={i * 60}>
-                <div className="surface-card h-full p-6">
-                  <Check className="h-5 w-5 text-primary" aria-hidden="true" />
-                  <h3 className="mt-4 text-base font-bold text-navy">{w.title}</h3>
-                  <p className="mt-2 text-sm text-muted-foreground">{w.text}</p>
+                <div className="surface-card h-full p-4 sm:p-6">
+                  <Check className="h-4 w-4 sm:h-5 sm:w-5 text-primary" aria-hidden="true" />
+                  <h3 className="mt-3 sm:mt-4 text-sm sm:text-base font-bold text-navy">{w.title}</h3>
+                  <p className="mt-1.5 sm:mt-2 text-[0.75rem] leading-relaxed sm:text-sm text-muted-foreground">{w.text}</p>
                 </div>
               </Reveal>
             ))}
           </ul>
 
-          <div className="mt-16">
+          <div className="mt-12 sm:mt-16">
             <SectionHeading eyebrow="Installation process" title="Ten steps, fully documented" />
-            <ol className="mt-10 space-y-4 border-l border-border pl-6">
+            <ol className="mt-8 space-y-4 border-l border-border pl-4 sm:pl-6">
               {installationSteps.map((s, i) => (
                 <Reveal as="li" key={s.no} delay={i * 40}>
                   <div className="relative">
-                    <span className="absolute -left-[31px] top-1.5 h-2.5 w-2.5 rounded-full bg-primary" aria-hidden="true" />
-                    <p className="text-sm font-semibold text-navy">
+                    <span className="absolute -left-[21px] sm:-left-[31px] top-1.5 h-2.5 w-2.5 rounded-full bg-primary" aria-hidden="true" />
+                    <p className="text-xs sm:text-sm font-semibold text-navy">
                       <span className="mr-2 text-primary">{s.no}</span>{s.title}
                     </p>
-                    <p className="mt-1 text-sm text-muted-foreground">{s.text}</p>
+                    <p className="mt-1 text-xs sm:text-sm text-muted-foreground">{s.text}</p>
                   </div>
                 </Reveal>
               ))}
@@ -388,19 +388,19 @@ export default function Index() {
       </section>
 
       {/* TESTIMONIALS */}
-      <section className="bg-muted/50 py-20 sm:py-24">
+      <section className="bg-muted/50 py-12 sm:py-24">
         <div className="container-x">
           <SectionHeading eyebrow="Customer voices" title="Testimonials"
             description="These are editable placeholders. We publish only real, consented customer feedback." />
-          <ul className="mt-12 grid gap-5 lg:grid-cols-3">
+          <ul className="mt-8 grid grid-cols-2 gap-3 sm:gap-5 lg:grid-cols-3">
             {testimonials.map((t, i) => (
-              <Reveal as="li" key={i} delay={i * 70}>
-                <blockquote className="surface-card h-full p-6">
-                  <p className="text-accent" aria-label="Five star placeholder rating">★★★★★</p>
-                  <p className="mt-3 text-sm leading-relaxed text-foreground/80">“{t.quote}”</p>
-                  <footer className="mt-5 text-sm">
+              <Reveal as="li" key={i} delay={i * 70} className={i === 2 ? "col-span-2 sm:col-span-1" : ""}>
+                <blockquote className="surface-card h-full p-4 sm:p-6">
+                  <p className="text-accent text-xs sm:text-sm" aria-label="Five star placeholder rating">★★★★★</p>
+                  <p className="mt-2 sm:mt-3 text-xs sm:text-sm leading-relaxed text-foreground/80">“{t.quote}”</p>
+                  <footer className="mt-3 sm:mt-5 text-xs sm:text-sm">
                     <span className="font-semibold text-navy">{t.name}</span>
-                    <span className="block text-muted-foreground">{t.location} • {t.system}</span>
+                    <span className="block text-muted-foreground text-[0.7rem] sm:text-xs">{t.location} • {t.system}</span>
                   </footer>
                 </blockquote>
               </Reveal>
@@ -410,21 +410,21 @@ export default function Index() {
       </section>
 
       {/* FAQ */}
-      <section className="py-20 sm:py-24">
+      <section className="py-12 sm:py-24">
         <div className="container-x max-w-3xl">
           <SectionHeading align="center" eyebrow="FAQ" title="Solar questions, answered" />
-          <Accordion type="single" collapsible className="mt-10">
+          <Accordion type="single" collapsible className="mt-8 sm:mt-10">
             {faqs.slice(0, 8).map((f, i) => (
               <AccordionItem key={i} value={`item-${i}`}>
-                <AccordionTrigger className="text-left text-base font-semibold text-navy">{f.q}</AccordionTrigger>
-                <AccordionContent className="text-sm leading-relaxed text-muted-foreground">{f.a}</AccordionContent>
+                <AccordionTrigger className="text-left text-sm sm:text-base font-semibold text-navy">{f.q}</AccordionTrigger>
+                <AccordionContent className="text-xs sm:text-sm leading-relaxed text-muted-foreground">{f.a}</AccordionContent>
               </AccordionItem>
             ))}
           </Accordion>
-          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <Button asChild variant="outline" className="rounded-full"><Link to="/faq">See all FAQs</Link></Button>
-            <Button asChild className="rounded-full">
-              <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer">Ask us on WhatsApp</a>
+          <div className="mt-6 sm:mt-8 flex gap-3">
+            <Button asChild variant="outline" className="rounded-full text-xs sm:text-sm px-5 h-9 sm:h-11"><Link to="/faq">See all FAQs</Link></Button>
+            <Button asChild className="rounded-full text-xs sm:text-sm px-5 h-9 sm:h-11">
+              <a href={whatsappUrl()} target="_blank" rel="noopener noreferrer">Ask on WhatsApp</a>
             </Button>
           </div>
         </div>

@@ -14,7 +14,7 @@ export default function Logo({ onDark = false, className }: { onDark?: boolean; 
             onDark ? "text-navy-foreground" : "text-navy"
           )}
         >
-          ARYAN SOLAR
+          AARYAN SOLAR
         </span>
         <span
           className={cn(

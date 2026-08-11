@@ -286,7 +286,7 @@ export const servicePlans = [
   { name: "Comprehensive Care", period: "Annual", items: ["6 visits per year", "Full electrical inspection", "Earthing check", "Priority service response"] },
 ];
 
-/** Placeholder projects — replace with real Aryan Solar project data and photos. */
+/** Placeholder projects — replace with real Aaryan Solar project data and photos. */
 export const projects = [
   { title: "5 kW Residential Rooftop", category: "Residential", location: "Vijayawada, AP", capacity: "5 kW", brand: "To be confirmed", inverter: "String inverter", type: "RCC elevated structure", generation: "Indicative — site dependent", status: "Placeholder" },
   { title: "3 kW Residential Rooftop", category: "Residential", location: "Guntur, AP", capacity: "3 kW", brand: "To be confirmed", inverter: "String inverter", type: "RCC standard structure", generation: "Indicative — site dependent", status: "Placeholder" },

@@ -5,7 +5,7 @@
 @layer base {
   :root {
     /* Aryan Solar design tokens */
-    --background: 150 20% 97%;
+    --background: 210 20% 99%;
     --foreground: 180 45% 12%;
 
     --card: 0 0% 100%;
@@ -30,14 +30,14 @@
     --accent: 40 90% 61%;
     --accent-foreground: 209 65% 12%;
 
-    --muted: 150 16% 94%;
+    --muted: 210 20% 96%;
     --muted-foreground: 185 12% 40%;
 
     --destructive: 0 72% 51%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 155 14% 88%;
-    --input: 155 14% 88%;
+    --border: 210 15% 91%;
+    --input: 210 15% 91%;
     --ring: 148 75% 37%;
 
     --radius: 0.875rem;

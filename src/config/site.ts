@@ -4,7 +4,7 @@
  */
 
 export const site = {
-  name: "Aryan Solar",
+  name: "Aaryan Solar",
   tagline: "Power Your Future with the Sun.",
   category: "Solar Energy Company",
   shortDescription:
@@ -15,21 +15,21 @@ export const site = {
   phone: "+91 90000 00000",
   phoneRaw: "+919000000000",
   whatsapp: "919000000000",
-  email: "hello@aryansolar.example",
+  email: "hello@aaryansolar.example",
 
-  /** PLACEHOLDER — replace with the actual office address supplied by the client */
+  /** Actual office address */
   address: {
-    line1: "Aryan Solar — Office address to be provided",
+    line1: "vrl backside, 21-139/58, Urmila Subbarao Nagar, Gollapudi",
     city: "Vijayawada",
     state: "Andhra Pradesh",
-    pincode: "520000",
+    pincode: "521225",
     country: "India",
   },
 
-  /** PLACEHOLDER — replace with the actual Google Maps place/embed for the client office */
+  /** Google Maps location config for Gollapudi office */
   maps: {
-    embedQuery: "Vijayawada, Andhra Pradesh, India",
-    directionsUrl: "https://www.google.com/maps/search/?api=1&query=Vijayawada%2C%20Andhra%20Pradesh",
+    embedQuery: "vrl backside, 21-139/58, Urmila Subbarao Nagar, Gollapudi, Vijayawada, Andhra Pradesh 521225",
+    directionsUrl: "https://www.google.com/maps/search/?api=1&query=vrl+backside%2C+21-139%2F58%2C+Urmila+Subbarao+Nagar%2C+Gollapudi%2C+Vijayawada%2C+Andhra+Pradesh+521225",
   },
 
   workingHours: [
@@ -58,17 +58,17 @@ export const disclaimers = {
   estimate:
     "Indicative estimate only. Final system size, generation, pricing, subsidy eligibility and savings depend on site conditions, DISCOM rules, government guidelines and technical assessment.",
   government:
-    "Government schemes, subsidy amounts, eligibility and regulations are subject to change. Please verify the latest information through the official government portal or with Aryan Solar before making financial decisions.",
+    "Government schemes, subsidy amounts, eligibility and regulations are subject to change. Please verify the latest information through the official government portal or with Aaryan Solar before making financial decisions.",
   brands:
-    "Brand names are shown to indicate product options we can source. Technical specifications, warranties and availability must be verified with the manufacturer before purchase. Aryan Solar does not claim authorised dealership unless explicitly stated.",
+    "Brand names are shown to indicate product options we can source. Technical specifications, warranties and availability must be verified with the manufacturer before purchase. Aaryan Solar does not claim authorised dealership unless explicitly stated.",
   financing:
-    "Financing availability depends on the lender, customer eligibility and current banking policies. Aryan Solar does not provide loans directly.",
+    "Financing availability depends on the lender, customer eligibility and current banking policies. Aaryan Solar does not provide loans directly.",
 };
 
 export const whatsappUrl = (message?: string) =>
   `https://wa.me/${site.whatsapp}?text=${encodeURIComponent(
     message ??
-      "Hello Aryan Solar, I would like to know more about installing a solar system. Please help me with a suitable system and quotation."
+      "Hello Aaryan Solar, I would like to know more about installing a solar system. Please help me with a suitable system and quotation."
   )}`;
 
 export const telUrl = `tel:${site.phoneRaw}`;

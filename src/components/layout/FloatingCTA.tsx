@@ -11,14 +11,14 @@ export default function FloatingCTA() {
           href={whatsappUrl()}
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="Chat with Aryan Solar on WhatsApp"
+          aria-label="Chat with Aaryan Solar on WhatsApp"
           className="pointer-events-auto inline-flex h-12 items-center gap-2 rounded-full bg-primary px-5 text-sm font-semibold text-primary-foreground shadow-lift transition-transform hover:scale-[1.03]"
         >
           <MessageCircle className="h-4 w-4" aria-hidden="true" /> WhatsApp
         </a>
         <a
           href={telUrl}
-          aria-label="Call Aryan Solar"
+          aria-label="Call Aaryan Solar"
           className="pointer-events-auto inline-flex h-12 items-center gap-2 rounded-full bg-navy px-5 text-sm font-semibold text-navy-foreground shadow-lift transition-transform hover:scale-[1.03]"
         >
           <Phone className="h-4 w-4" aria-hidden="true" /> Call

@@ -46,7 +46,7 @@ export function calculateSubsidy(capacityKw: number) {
 export const inr = (value: number) =>
   `₹${Math.round(value).toLocaleString("en-IN")}`;
 
-/** Editable pricing packages — replace ranges with verified Aryan Solar pricing. */
+/** Editable pricing packages — replace ranges with verified Aaryan Solar pricing. */
 export const packages = [
   {
     capacity: "1 kW",
