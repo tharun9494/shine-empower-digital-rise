@@ -569,10 +569,13 @@ export function AboutPage() {
             </Reveal>
           ))}
         </div>
-        <p className="text-xs sm:text-sm text-muted-foreground">
-          Company history, founding year, team size and certifications are intentionally left blank
-          until verified details are supplied by Aaryan Solar.
-        </p>
+        <div className="surface-card p-6 border border-border/80 rounded-2xl max-w-2xl">
+          <h3 className="text-sm sm:text-base font-bold text-secondary uppercase tracking-[0.16em]">Leadership</h3>
+          <h4 className="text-lg sm:text-xl font-bold text-navy mt-1">Our Leadership</h4>
+          <p className="mt-3 text-xs sm:text-sm text-muted-foreground leading-relaxed">
+            Aaryan Solar is founded and directed by <span className="font-semibold text-navy">{site.owner}</span>. Under his vision, we are committed to delivering premium quality solar installations, transparent pricing, and robust support to empower homeowners and businesses across Andhra Pradesh.
+          </p>
+        </div>
         <div>
           <SectionHeading eyebrow="Why choose us" title="Why choose Aaryan Solar" />
           <Grid className="mt-6">
@@ -639,9 +642,7 @@ export function ContactPage() {
             <ul className="mt-4 space-y-1 text-xs sm:text-sm text-muted-foreground">
               {site.workingHours.map((w) => <li key={w.days}>{w.days}: {w.hours}</li>)}
             </ul>
-            <p className="mt-3 text-[0.7rem] sm:text-xs text-muted-foreground">
-              Address and map are placeholders until the client's verified office location is supplied.
-            </p>
+
           </div>
 
           <div className="surface-card overflow-hidden">

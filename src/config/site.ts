@@ -12,10 +12,11 @@ export const site = {
   url: "https://shine-empower-digital-rise.lovable.app",
 
   /** PLACEHOLDER — replace with verified contact details */
-  phone: "+91 90000 00000",
-  phoneRaw: "+919000000000",
-  whatsapp: "919000000000",
-  email: "hello@aaryansolar.example",
+  phone: "+91 91778 92692",
+  phoneRaw: "+919177892692",
+  whatsapp: "919177892692",
+  email: "hello@aaryansolar.com",
+  owner: "Jaswanth Siram",
 
   /** Actual office address */
   address: {
@@ -28,8 +29,8 @@ export const site = {
 
   /** Google Maps location config for Gollapudi office */
   maps: {
-    embedQuery: "vrl backside, 21-139/58, Urmila Subbarao Nagar, Gollapudi, Vijayawada, Andhra Pradesh 521225",
-    directionsUrl: "https://www.google.com/maps/search/?api=1&query=vrl+backside%2C+21-139%2F58%2C+Urmila+Subbarao+Nagar%2C+Gollapudi%2C+Vijayawada%2C+Andhra+Pradesh+521225",
+    embedQuery: "Aaryan solar, Urmila Subbarao Nagar, Gollapudi, Vijayawada, Andhra Pradesh 521225",
+    directionsUrl: "https://www.google.com/maps/place/Aaryan+solar/@16.5479785,80.5943986,17z/data=!3m1!4b1!4m6!3m5!1s0x3a35efa9c91d3669:0xfe3744eeeb418602!8m2!3d16.5479785!4d80.5943986!16s%2Fg%2F11y_gy00l2?entry=ttu&g_ep=EgoyMDI2MDgxOS4wIKXMDSoASAFQAw%3D%3D",
   },
 
   workingHours: [
